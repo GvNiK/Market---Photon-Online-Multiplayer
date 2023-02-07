@@ -1,0 +1,15 @@
+Font Style:- Abel
+
+LOGIN
+SignInButton:- 4C4066
+UnityBox:- F4F2ED
+FacebookBox:- 4267B2
+
+CHARACTER SELECT
+ContinueButton:- 4C4066
+CharacterSelectBox-Hover:- 4C4066
+
+INGAME
+Icon:- 535353
+Microphone Mute:- FF0000
+Player Count Outline Box:= 33% alpha 000000
