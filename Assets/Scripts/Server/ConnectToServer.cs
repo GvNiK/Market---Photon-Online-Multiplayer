@@ -1,18 +1,49 @@
-using UnityEngine;
+using TMPro;
 using Photon.Pun;
+using UnityEngine;
+using UnityEngine.UI;
 using Photon.Realtime;
+using Core.UI;
 
 namespace Core.Server
 {
     public class ConnectToServer : MonoBehaviourPunCallbacks
     {
+        [SerializeField] private TMP_InputField inputField;
+        [SerializeField] private Button continueBtn;
+        [SerializeField] private GameObject connectScreen;
+        [SerializeField] private CharacterSelection characterSelection;
+
         #region Unity Methods
         private void Start()
         {
+            continueBtn.gameObject.SetActive(false);
+            connectScreen.SetActive(false);
+
             PhotonNetwork.ConnectUsingSettings();
             Debug.Log("Connecting To Server...");
+
+            continueBtn.onClick.AddListener(LoadNextScene);
+        }
+
+        private void Update()
+        {
+            if (inputField.text.Length > 4 && characterSelection.isAnyAvatarSeleced)
+            {
+                continueBtn.gameObject.SetActive(true);
+            }
+            else
+            {
+                continueBtn.gameObject.SetActive(false);
+            }
         }
         #endregion
+
+        private void LoadNextScene()
+        {
+            connectScreen.SetActive(true);
+            PhotonNetwork.JoinRandomRoom();
+        }
 
         #region Photon Methods
         public override void OnConnectedToMaster() 
@@ -25,7 +56,7 @@ namespace Core.Server
         public override void OnJoinedLobby()
         {
             Debug.Log("Joined Lobby.");
-            PhotonNetwork.JoinRandomRoom();
+            //PhotonNetwork.JoinRandomRoom();
         }
 
         private void OnClickConnect()
@@ -53,14 +84,14 @@ namespace Core.Server
         public override void OnCreatedRoom()
         {
             Debug.Log("Successufully Created Room");
+            //PhotonNetwork.LoadLevel(2);
         }
 
         public override void OnJoinedRoom()
         {
-            //PhotonNetwork.LoadLevel(1);
             Debug.Log("Joined Room");
+            PhotonNetwork.LoadLevel(2);
         }
-        
         #endregion
     }
 }
