@@ -168,11 +168,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c519c3c2777ac84aa113d5aaff58915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnNumber: 0
+  avatarIndex: 0
+  buttonClick: 0
   selectImg: {fileID: 4497571308175535751}
   outlineImg: {fileID: 2470622012490329530}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   selectionColor: {r: 0.29803923, g: 0.2509804, b: 0.40000004, a: 1}
+  avatarSprite: {fileID: 0}
 --- !u!1 &4497571308568045877
 GameObject:
   m_ObjectHideFlags: 0

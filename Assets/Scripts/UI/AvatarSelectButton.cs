@@ -1,14 +1,17 @@
 using System;
+using Photon.Pun;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using ExitGames.Client.Photon;
+using UnityEngine.EventSystems;
 
 namespace Core.UI
 {
     public class AvatarSelectButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
     {
         [Header("Button Properties -------------------------------------------------")]
-        [SerializeField] private int buttonNumber;
+        [SerializeField] private int avatarIndex;
+        private int buttonNumber;
         public bool buttonClick;
 
         [Space(2f)]
@@ -22,6 +25,8 @@ namespace Core.UI
         public Action<int> OnButtonClick;
         private RectTransform rectTransform;
 
+        private Hashtable playerProperties = new Hashtable();
+
         #region Initialization
         private void Awake()
         {
@@ -31,11 +36,12 @@ namespace Core.UI
         private void OnEnable()
         {
             selectImg.gameObject.SetActive(false);
+            avatarIndex = buttonNumber + 1;
         }
 
         private void Start()
         {
-            //continueBtn.onCLick
+
         }
         #endregion
 
@@ -69,6 +75,11 @@ namespace Core.UI
         public void OnPointerClick(PointerEventData eventData)
         {
             OnButtonClick?.Invoke(buttonNumber);
+
+            //Setting Player Properties - Character Selection Value, then Instantiate that Character Prefab in nextscene.
+            playerProperties["AvatarStats"] = buttonNumber;
+            PhotonNetwork.LocalPlayer.SetCustomProperties(playerProperties);
+
             selectImg.gameObject.SetActive(true);           
         }
 
@@ -93,7 +104,7 @@ namespace Core.UI
         public void SetButtonNumber(int value)
         {
             buttonNumber = value;
-            this.gameObject.name = "Avatar " + value;
+            this.gameObject.name = "Avatar " + (value + 1);
         }
 
         ///<summary>

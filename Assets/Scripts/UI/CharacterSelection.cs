@@ -28,22 +28,6 @@ namespace Core.UI
         }
         #endregion
 
-        #region Updates & Rigidbody
-        private void FixedUpdate()
-        {
-
-        }
-
-        private void Update()
-        {
-
-        }
-
-        private void LateUpdate()
-        {
-
-        }
-        #endregion
 
         private void UpdateAvatarList()
         {
@@ -53,7 +37,7 @@ namespace Core.UI
 
                 for (int i = 0; i < avatarList.Count; i++)
                 {
-                    btn.SetButtonNumber(i + 1);
+                    btn.SetButtonNumber(i);
 
                     btn.OnButtonClick += (i) =>
                     {
@@ -78,6 +62,7 @@ namespace Core.UI
                 btn.ResetButtonToDefault();
             }
         }
+
 
         #region Getter/Setter
         public bool isAnyAvatarSeleced

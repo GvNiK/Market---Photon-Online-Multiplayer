@@ -1,9 +1,10 @@
 using TMPro;
+using Core.UI;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
-using Core.UI;
+using UnityEngine.InputSystem;
 
 namespace Core.Server
 {
@@ -30,7 +31,14 @@ namespace Core.Server
         {
             if (inputField.text.Length > 4 && characterSelection.isAnyAvatarSeleced)
             {
-                continueBtn.gameObject.SetActive(true);
+                if(Keyboard.current.enterKey.isPressed)
+                {
+                    LoadNextScene();
+                }
+                else
+                {
+                    continueBtn.gameObject.SetActive(true);
+                }
             }
             else
             {
@@ -42,7 +50,10 @@ namespace Core.Server
         private void LoadNextScene()
         {
             connectScreen.SetActive(true);
-            PhotonNetwork.JoinRandomRoom();
+            PhotonNetwork.LocalPlayer.NickName = inputField.text;
+
+            if(PhotonNetwork.IsConnectedAndReady)
+                PhotonNetwork.JoinRandomRoom();
         }
 
         #region Photon Methods

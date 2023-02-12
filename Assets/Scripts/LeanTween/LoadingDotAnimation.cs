@@ -28,24 +28,9 @@ namespace Core.UI
             {
                 StartCoroutine("DotAnimation");
                 yield return new WaitForSeconds(1f);
-                Debug.Log("Started.");
             }
         }
         #endregion
-
-        #region Updates & Rigidbody
-        private void FixedUpdate()
-        {
-
-        }
-
-        private void Update()
-        {
-            // while(this.gameObject.activeSelf)
-            // {
-            //     //StartCoroutine(DotAnimation());
-            // }
-        }
 
 
         IEnumerator DotAnimation()
@@ -63,9 +48,15 @@ namespace Core.UI
             yield return new WaitForSeconds(animSpeedRate);
         }
 
-        private void LateUpdate()
+        #region Decommissioning
+        private void OnDisable()
         {
+            StopAllCoroutines();
+        }
 
+        private void OnDestroy()
+        {
+            //StopAllCoroutines();
         }
         #endregion
     }
