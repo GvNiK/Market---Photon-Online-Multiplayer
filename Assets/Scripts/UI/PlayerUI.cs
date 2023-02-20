@@ -8,8 +8,8 @@ namespace Core.UI
 {
     public class PlayerUI : MonoBehaviour
     {
-        [Header("Player Name : --------------------------------------------------------------------")]
-        [SerializeField] TMP_Text playerName;
+        // [Header("Player Name : --------------------------------------------------------------------")]
+        // [SerializeField] TMP_Text playerName;
 
         [Space(2f)]
         [Header("Voice Properties : --------------------------------------------------------------------")]
@@ -17,6 +17,16 @@ namespace Core.UI
         [SerializeField] Image panelImg;
         [SerializeField] Image voiceIcon;
         [SerializeField] Sprite muteIcon;
+
+        [Space(2f)]
+        [Header("Room Properties : --------------------------------------------------------------------")]
+        [SerializeField] TMP_Text playersInRoom;
+
+
+        [Space(2f)]
+        [Header("UI Properties : --------------------------------------------------------------------")]
+        [SerializeField] Canvas playerDisplayCanvas;
+
 
         private VoiceHandler voiceHandler;
         private AudioSource source;
@@ -33,11 +43,11 @@ namespace Core.UI
             voiceIcon.gameObject.SetActive(false);
             voiceFXImg.gameObject.SetActive(false);
 
-            playerName.text = PhotonNetwork.LocalPlayer.NickName;
-            if(string.IsNullOrEmpty(playerName.text))
-            {
-                playerName.text = "Avatar";
-            }
+            // playerName.text = PhotonNetwork.LocalPlayer.NickName;
+            // if(string.IsNullOrEmpty(playerName.text))
+            // {
+            //     playerName.text = "Avatar";
+            // }
         }
 
         private void Start()
@@ -47,6 +57,8 @@ namespace Core.UI
                 source = audioSource;
                 audioClip = source.clip;
             };
+
+            Canvas.ForceUpdateCanvases();
         }
         #endregion
 
@@ -70,6 +82,8 @@ namespace Core.UI
                 voiceIcon.gameObject.SetActive(false);
                 voiceFXImg.gameObject.SetActive(false);
             }
+
+            playersInRoom.text = PhotonNetwork.PlayerList.Length.ToString();
         }
 
         private void LateUpdate()

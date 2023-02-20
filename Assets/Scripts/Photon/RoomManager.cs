@@ -4,11 +4,11 @@ using Photon.Realtime;
 
 namespace Core.Photon
 {
-    public class AvatarManager : MonoBehaviour
+    public class RoomManager : MonoBehaviour
     {
+        [Tooltip("Spawns Avatar. IMP : The hierarchical Order must be same as in the Avatar Selection Menu.")]
         [SerializeField] GameObject[] avatarPrefabsList;
         GameObject avatarToSpawn;
-
 
         #region Initialization
         private void Awake()

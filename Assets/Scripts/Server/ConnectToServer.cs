@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
 using UnityEngine.InputSystem;
+using System;
 
 namespace Core.Server
 {
@@ -14,6 +15,8 @@ namespace Core.Server
         [SerializeField] private Button continueBtn;
         [SerializeField] private GameObject connectScreen;
         [SerializeField] private CharacterSelection characterSelection;
+
+        private TouchScreenKeyboard keyboard;
 
         #region Unity Methods
         private void Start()
@@ -25,6 +28,7 @@ namespace Core.Server
             Debug.Log("Connecting To Server...");
 
             continueBtn.onClick.AddListener(LoadNextScene);
+            inputField.onSelect.AddListener(InputFieldSelected);
         }
 
         private void Update()
@@ -54,6 +58,13 @@ namespace Core.Server
 
             if(PhotonNetwork.IsConnectedAndReady)
                 PhotonNetwork.JoinRandomRoom();
+        }
+
+
+        private void InputFieldSelected(string arg)
+        {
+            keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
+            Debug.Log("OPen Keuboard.");
         }
 
         #region Photon Methods

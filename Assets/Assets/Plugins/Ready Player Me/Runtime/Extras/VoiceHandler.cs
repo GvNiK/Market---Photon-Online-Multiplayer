@@ -73,6 +73,9 @@ namespace ReadyPlayerMe
                 if (AudioSource == null)
                 {
                     AudioSource = gameObject.AddComponent<AudioSource>();
+                    AudioSource.rolloffMode = AudioRolloffMode.Linear;
+                    AudioSource.minDistance = 1;
+                    AudioSource.maxDistance = 10; 
                     OnAudioSourceCreated?.Invoke(AudioSource);
                 }
 

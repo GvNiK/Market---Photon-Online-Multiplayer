@@ -244,9 +244,9 @@ GameObject:
   - component: {fileID: 5632685251455976606}
   - component: {fileID: 5632685251455976607}
   - component: {fileID: 5632685251455976600}
-  - component: {fileID: 8810436328762612714}
+  - component: {fileID: 5986872430153372619}
   m_Layer: 0
-  m_Name: PlayerUI
+  m_Name: PlayerBillboardUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &5632685251455976600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8810436328762612714
+--- !u!114 &5986872430153372619
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,15 +344,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5632685251455976602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9684fabc88105c04f9699c218dc415a5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b34a35f48a499843bef3c5f279d78b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: {fileID: 6123792671491309343}
-  voiceFXImg: {fileID: 5632685252339735871}
-  panelImg: {fileID: 5632685251890684226}
-  voiceIcon: {fileID: 6628938214053514564}
-  muteIcon: {fileID: 21300000, guid: d2cd9a122af43d147be1877ccec395c5, type: 3}
-  source: {fileID: 0}
+  cam: {fileID: 0}
+  PV: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &5632685251890684236
 GameObject:
   m_ObjectHideFlags: 0

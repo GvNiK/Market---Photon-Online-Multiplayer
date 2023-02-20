@@ -1,0 +1,10 @@
+1st Circle - F8F9FB
+2nd Circle - E4E4EC
+3RD Circle - 615C73   glow - 8000FF
+
+Pointer- 5A5A5A
+Gradient Line - 5505FF 8000FF DB00FF     glow- 5201FF
+Icon - 404040
+Selection Shape - FFFFFF
+
+ 
