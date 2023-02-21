@@ -105,13 +105,13 @@ namespace Core.Server
 
         public override void OnCreatedRoom()
         {
-            Debug.Log("Successufully Created Room");
+            Debug.Log("Successufully Created Room.");
             //PhotonNetwork.LoadLevel(2);
         }
 
         public override void OnJoinedRoom()
         {
-            Debug.Log("Joined Room");
+            Debug.Log("Joined Room.");
             PhotonNetwork.LoadLevel(2);
         }
         #endregion
