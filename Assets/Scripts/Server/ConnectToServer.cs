@@ -100,6 +100,8 @@ namespace Core.Server
             roomOptions.IsVisible = true;
             roomOptions.MaxPlayers = 20;
             roomOptions.PublishUserId = true;
+            // AppSettings appSettings = new AppSettings();
+            // appSettings.FixedRegion = "in";
             PhotonNetwork.CreateRoom("PlayArea", roomOptions);
         }
 
