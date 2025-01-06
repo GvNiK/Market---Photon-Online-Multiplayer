@@ -1,4 +1,4 @@
-# Market---Photon-Online-Multiplayer
+# Market---Multiplayer-Multiplatform Project
 
 This is a multplayer multiplatform project created using Photon for Networking and Unity for rest of the development. This project has simple character selection scene and a default room that the user spawns after creating the character. The room is simple for now with plain White background, typically restricted, but creates the illusion of infinite white space for users. Users spawn into this area and there's a track system for tracking players that have joined or left the room. This project currently works on PC and Mobile (Andriod).
 It also supports Voice Calls between players.
