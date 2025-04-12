@@ -2,7 +2,7 @@ using TMPro;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
-using ReadyPlayerMe;
+using ReadyPlayerMe.Core;
 
 namespace Core.UI
 {
@@ -52,11 +52,11 @@ namespace Core.UI
 
         private void Start()
         {
-            voiceHandler.OnAudioSourceCreated += (audioSource) =>
-            {
-                source = audioSource;
-                audioClip = source.clip;
-            };
+            // voiceHandler.OnAudioSourceCreated += (audioSource) =>
+            // {
+            //     source = audioSource;
+            //     audioClip = source.clip;
+            // };
 
             Canvas.ForceUpdateCanvases();
         }
@@ -72,16 +72,16 @@ namespace Core.UI
         {
             voiceFXImg.rectTransform.sizeDelta = panelImg.rectTransform.sizeDelta + new Vector2(8f, 8f);
 
-            if(voiceHandler.GetAmplitude() > 0.05)
-            {
-                voiceIcon.gameObject.SetActive(true);
-                voiceFXImg.gameObject.SetActive(true);
-            }
-            else
-            {
-                voiceIcon.gameObject.SetActive(false);
-                voiceFXImg.gameObject.SetActive(false);
-            }
+            // if(voiceHandler.GetAmplitude() > 0.05)
+            // {
+            //     voiceIcon.gameObject.SetActive(true);
+            //     voiceFXImg.gameObject.SetActive(true);
+            // }
+            // else
+            // {
+            //     voiceIcon.gameObject.SetActive(false);
+            //     voiceFXImg.gameObject.SetActive(false);
+            // }
 
             playersInRoom.text = PhotonNetwork.PlayerList.Length.ToString();
         }
